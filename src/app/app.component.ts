@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TodosComponent } from './todos/todos.component'
+import { CartComponent } from './cart/cart.component'
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,5 @@ import { TodosComponent } from './todos/todos.component'
 })
 
 export class AppComponent {
-  title = 'app works!';
+  title = 'ECommerce Shop';
 }
