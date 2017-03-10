@@ -2,9 +2,14 @@
 <div class="container">
     <div class="col-md-6 text-center">
       <h1>{{title}}</h1>
+      <label>Change the name by yourself!</label>
+      
+      <!-- NGMODEL lega l'input alla classe corrispondende e il campo title' -->
+      <input [(ngModel)] = "title"  class="form-control" id="exampleInputName2" placeholder="MarketPlace name">
     </div>
     <div class="col-md-6">
       <cart> </cart>
+      <br>
     </div>
     <shop> </shop>
 </div>
