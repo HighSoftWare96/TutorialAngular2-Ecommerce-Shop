@@ -10,7 +10,7 @@ import { ProductService } from '../services/products.service'
 
 export class CartUIComponent implements OnInit {
 
-  constructor(private service: ProductService) {
+  constructor(private itemStored: ProductService) {
   }
 
 

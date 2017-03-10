@@ -39,7 +39,10 @@ export class ShopComponent {
         // se trovo l'elemento con quell'id cambio il suo prezzo
         this.itemStored.items.forEach(element => {
             if (element.id == id2) {
-                element.amount = value;
+                if(element.onCart) // aggiungo a quelli che ci sono gia
+                    element.amount += value;
+                else
+                    element.amount = value;
             }
         });
     } 

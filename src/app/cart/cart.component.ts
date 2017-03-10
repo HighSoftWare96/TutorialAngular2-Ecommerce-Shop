@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/products.service';
 import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -10,11 +10,13 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
   styleUrls: ['./cart.component.css']
 })
 
-export class CartComponent {
+export class CartComponent implements OnInit{
   intoCart: boolean;
 
-  constructor(private service: ProductService, private location: Location, private router: Router) {
-    console.log(location.path());
+  constructor(private service: ProductService, private location: Location, private router: Router){}
+
+  ngOnInit() {
+    console.log(this.location.path());
     if (this.location.path() == '/cart') {
       this.intoCart = true;
     }
@@ -26,10 +28,10 @@ export class CartComponent {
   changeButton() {
     if (this.location.path() == '/cart') {
       this.router.navigate(['']);
-      this.intoCart = true;
+      this.intoCart = false;
     } else {
       this.router.navigate(['/cart']);
-      this.intoCart = false;
+      this.intoCart = true;
     }
   }
 

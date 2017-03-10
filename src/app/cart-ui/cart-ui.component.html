@@ -1,5 +1,22 @@
 <router-outlet>
-  <p>
-    cart-ui works!
-  </p>
+  <br /> <br />
+  <ul class="itemStored" style="list-style: none;">
+    <li *ngFor="let item of itemStored.items">
+      <div class="row" *ngIf="item.onCart">
+        <div class="col-md-2">
+          <img src="bag.jpg" />
+        </div>
+        <div class="col-md-5">
+          <strong>{{item.name}}</strong>
+          <br />Amount: {{item.amount}}
+        </div>
+        <div class="col-md-5">
+          <h4>{{item.originalPrice * item.amount}} {{item.currency}}</h4> <br>
+          <span>{{item.originalPrice}} {{item.currency}}/each</span> <br />
+          <span>ID: {{item.id}}</span>
+        </div>
+        
+      </div>
+    </li>
+  </ul>
 </router-outlet>
