@@ -1,5 +1,6 @@
 <router-outlet>
   <br /> <br />
+  <div class= "col-md-8 text-right" *ngIf="itemStored.subTotal == 0"><br />Your cart is empty... Back to shop!<br /></div>
   <ul class="itemStored" style="list-style: none;">
     <li *ngFor="let item of itemStored.items">
       <div class="row" *ngIf="item.onCart">
@@ -22,4 +23,5 @@
     </li>
     
   </ul>
+  <div class= "col-md-8 text-right " *ngIf="itemStored.subTotal > 0">Total: <h4> {{itemStored.subTotal}} $</h4></div>
 </router-outlet>
