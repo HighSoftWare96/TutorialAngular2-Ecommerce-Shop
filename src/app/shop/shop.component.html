@@ -1,27 +1,30 @@
 <h3> Items available: </h3>
 <br />
 <ul class="itemStored" style="list-style: none">
-    <li *ngFor="let item of itemStored">
+    <li *ngFor="let item of itemStored.items">
         <div class="row">
             <div class="col-md-2">
                 <img src="bag.jpg" />
             </div>
             <div class="col-md-3">
                 <strong>{{item.name}}</strong>
-                <br />
-                {{item.description}}
+                <br /> {{item.description}}
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-success" (click) = changeCurrency(item.id) >To {{item.otherCurrency}}</button>
+                <button type="button" class="btn btn-success" (click)="changeCurrency(item.id)">To {{item.otherCurrency}}</button>
             </div>
             <div class="col-md-3">
-                <h4>{{item.price}} {{item.currency}}</h4> <br>
+                <h4>{{item.originalPrice * item.amount}} {{item.currency}}</h4> <br>
+                <span>{{item.originalPrice}} {{item.currency}}/each</span> <br />
                 <span>ID: {{item.id}}</span>
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-info" > Add to the cart! </button>
+                <p> How many? </p>
+                <input #box type="number" value="1" min="1" class="form-control" [ngModel]="model" (ngModelChange)="amountChanged($event, item.id)" placeholder="1"> 
+                <br />
+                <button type="button" class="btn btn-info" (click)="addToCart(item.id)"> Add to the cart! </button>
             </div>
         </div><br />
-        <hr style="border-color: black"/>
+        <hr style="border-color: black" />
     </li>
 </ul>
