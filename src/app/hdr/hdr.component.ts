@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../app.component'; 
 
 @Component({
   selector: 'hdr',
@@ -7,13 +7,13 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./hdr.component.css']
 })
 export class HdrComponent implements OnInit {
-
+  
   title: string;
 
   constructor() { }
 
   ngOnInit() {
     this.title = "Ecommerce Shop";
-  }
+}
 
 }

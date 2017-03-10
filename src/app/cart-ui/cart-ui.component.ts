@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/products.service'
 
+
 @Component({
   selector: 'app-cart-ui',
   templateUrl: './cart-ui.component.html',
@@ -9,9 +10,10 @@ import { ProductService } from '../services/products.service'
 
 export class CartUIComponent implements OnInit {
 
-  constructor(private service: ProductService) {}
+  constructor(private service: ProductService) {
+  }
+
 
   ngOnInit() {}
-
 
 }
