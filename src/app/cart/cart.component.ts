@@ -8,6 +8,8 @@ import { ProductService } from '../services/products.service';
 })
 
 export class CartComponent {
+  intoCart: boolean = false;
+
   constructor( private service : ProductService ) { 
   }
   
