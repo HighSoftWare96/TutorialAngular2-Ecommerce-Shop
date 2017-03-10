@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../services/products.service';
 
 @Component({
     selector: 'cart',
@@ -8,7 +7,12 @@ import { ProductService } from '../services/products.service';
 })
 
 export class CartComponent {
-  constructor( private service : ProductService ) { 
+  nItems: number;
+  // manca un array dove inserire gli elementi del carrello
+
+
+  constructor() { 
+    this.nItems = 0;
+    console.log("Inizialized!");
   }
-  
 }
