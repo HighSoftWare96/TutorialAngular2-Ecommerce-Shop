@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 export class ProductService {
     nItems: number = 0;
     subTotal: number = 0;
-    
-    constructor(){
+
+    constructor() {
         this.nItems = 0;
         this.subTotal = 0;
     }
-    
+
     public items: item[] = [
         { id: 1, name: 'MP3 Player', description: 'A fantastic MP3 Player you can use whenever you want!', originalPrice: 7000, currency: '$', otherCurrency: 'Euro', onCart: false, amount: 1 },
         { id: 2, name: '4K TV', description: 'A fantastic 4K television for seeing at best!', originalPrice: 19000, currency: '$', otherCurrency: 'Euro', onCart: false, amount: 1 },
@@ -25,9 +25,20 @@ export class ProductService {
     addToCart(id2: number) {
         this.items.forEach(element => {
             if (element.id == id2) {
+                var amountTemp: number = 0;
+                var totTemp: number = 0;
                 element.onCart = true;
-                this.nItems =  this.nItems + element.amount;
-                this.subTotal += element.originalPrice * element.amount;
+
+                // calcolo il totale degli oggetti
+                for (let item of this.items) {
+                    if (item.onCart){
+                        amountTemp += item.amount;
+                        totTemp += (item.originalPrice * item.amount)
+                    }
+                }
+
+                this.nItems = amountTemp;
+                this.subTotal = totTemp;
             }
         });
     }

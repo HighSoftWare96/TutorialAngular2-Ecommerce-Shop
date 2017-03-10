@@ -34,6 +34,7 @@ export class ShopComponent {
         });
     }
 
+/*
     amountChanged(value: number, id2: number) {
 
         // se trovo l'elemento con quell'id cambio il suo prezzo
@@ -46,7 +47,7 @@ export class ShopComponent {
             }
         });
     } 
-
+*/
     addToCart(id: number){
         this.itemStored.addToCart(id);
     }

@@ -15,8 +15,11 @@
           <span>{{item.originalPrice}} {{item.currency}}/each</span> <br />
           <span>ID: {{item.id}}</span>
         </div>
-        
+      </div>
+      <div class="row" *ngIf="item.onCart">
+      <hr style="border-color: black;">
       </div>
     </li>
+    
   </ul>
 </router-outlet>

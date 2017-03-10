@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-2">
                 <p> How many? </p>
-                <input #box type="number" value="1" min="1" class="form-control" [ngModel]="model" (ngModelChange)="amountChanged($event, item.id)" placeholder="1"> 
+                <input #box type="number" min="1" class="form-control" [(ngModel)] = "item.amount" > 
                 <br />
                 <button type="button" class="btn btn-info" (click)="addToCart(item.id)"> Add to the cart! </button>
             </div>
