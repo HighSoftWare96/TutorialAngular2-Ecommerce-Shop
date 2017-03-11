@@ -16,4 +16,11 @@ export class CartUIComponent implements OnInit {
 
   ngOnInit() {}
 
+  removeAll(){
+    this.itemStored.removeAll();
+  }
+
+  removeOne(id: number){
+    this.itemStored.removeOne(id);
+  }
 }

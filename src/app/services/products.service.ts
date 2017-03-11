@@ -25,22 +25,47 @@ export class ProductService {
     addToCart(id2: number) {
         this.items.forEach(element => {
             if (element.id == id2) {
-                var amountTemp: number = 0;
-                var totTemp: number = 0;
                 element.onCart = true;
-
-                // calcolo il totale degli oggetti
-                for (let item of this.items) {
-                    if (item.onCart){
-                        amountTemp += item.amount;
-                        totTemp += (item.originalPrice * item.amount)
-                    }
-                }
-
-                this.nItems = amountTemp;
-                this.subTotal = totTemp;
+                this.totCalculate();
             }
         });
+    }
+
+    removeAll() {
+        this.items.forEach(element => {
+            element.amount = 1;
+            element.onCart = false;
+            this.totCalculate();
+        });
+    }
+
+    removeOne(id2: number) {
+        this.items.forEach(element => {
+            if (element.id == id2) {
+                element.amount -= 1; //tolgo un elemento
+                if(element.amount < 1){
+                    element.onCart = false; // non ci sono piu elementi di questo tipo
+                    element.amount = 1;
+                }
+            }
+            this.totCalculate();
+        });
+    }
+
+    totCalculate() {
+        var amountTemp: number = 0;
+        var totTemp: number = 0;
+
+        // calcolo il totale degli oggetti
+        for (let item of this.items) {
+            if (item.onCart) {
+                amountTemp += item.amount;
+                totTemp += (item.originalPrice * item.amount)
+            }
+        }
+
+        this.nItems = amountTemp;
+        this.subTotal = totTemp;
     }
 }
 
